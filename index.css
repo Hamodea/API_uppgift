@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  padding: 4rem;
+}
+
+body h1 {
+  margin-bottom: 1rem;
+}
+
+main {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* ########## Loader styling ########## */
+
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 20px;
+  background: radial-gradient(circle closest-side, #000 94%, #0000)
+    right/calc(200% - 1em) 100%;
+  animation: l24 1s infinite alternate linear;
+}
+.loader::before {
+  content: "Loading...";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side, #fff 94%, #000);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes l24 {
+  100% {
+    background-position: left;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    padding: 2rem;
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  body {
+    padding: 1rem;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+#posts-container {
+  display: block !important;
+  padding-top: 20px;
+
+}
+#post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px; 
+}
+
+/* Styling för varje post */
+.post-card {
+  background: #f9f9f9; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s; 
+  width: 300px;
+  margin-top: 10px;
+}
+
+/* När man hovrar över en post */
+.post-card:hover {
+  transform: translateY(-5px); /* Låt kortet "lyfta" lite */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Starkare skugga */
+}
+
+/* Titeln på posten */
+.post-card .title {
+  font-size: 1.2em; /* Större text för titeln */
+  font-weight: bold; /* Fetstil */
+  color: #333; /* Mörk text */
+  margin-bottom: 8px; 
+}
+
+/* Kroppen av posten */
+.post-card .body {
+  font-size: 1em; /* Standardstorlek */
+  color: #555; /* Grå text för läsbarhet */
+  line-height: 1.5; /* Öka radavstånd */
+  margin: 0;
+}
